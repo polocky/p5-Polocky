@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin;
+use Path::Class;
+use lib Path::Class::Dir->new($FindBin::Bin, '..', 'lib')->stringify;
+use Module::Setup;
+
+die './polocky-setup YourAppName' unless $ARGV[0];
+
+my $setup = Module::Setup->new( 
+    options => { 
+        direct         => 1, 
+        'flavor_class' => '+Polocky::Setup::Flavor::Polocky' ,
+    },
+    argv => [ $ARGV[0] ],
+);
+$setup->run();

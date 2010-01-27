@@ -1,0 +1,10 @@
+use Test::Most qw/no_plan/;
+use strict;
+use warnings;
+use lib './t/lib';
+use TestCore::RolePluggable;
+my $obj = TestCore::RolePluggable->new();
+$obj->setup();
+is($obj->echo('hi'),'hi');
+throws_ok { $obj->err01 } 'Polocky::Exception::ParameterMissingError' ;
+throws_ok { $obj->err02 } 'Polocky::Exception::InvalidArgumentError' ;

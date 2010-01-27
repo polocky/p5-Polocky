@@ -1,0 +1,13 @@
+use Test::Most qw/no_plan/;
+use Polocky::Exceptions;
+throws_ok { Polocky::Exception->throw("trow you") } 'Polocky::Exception' ;
+throws_ok { Polocky::Exception::ClassNotFound->throw() } 'Polocky::Exception::ClassNotFound' ;
+throws_ok { Polocky::Exception::AbstractMethod->throw() } 'Polocky::Exception::AbstractMethod' ;
+throws_ok { Polocky::Exception::UnimplementedMethod->throw() } 'Polocky::Exception::UnimplementedMethod' ;
+throws_ok { Polocky::Exception::DeprecatedMethod->throw() } 'Polocky::Exception::DeprecatedMethod' ;
+throws_ok { Polocky::Exception::InvalidArgumentError->throw() } 'Polocky::Exception::InvalidArgumentError' ;
+throws_ok { Polocky::Exception::TemplateNotFound->throw() } 'Polocky::Exception::TemplateNotFound' ;
+throws_ok { Polocky::Exception::NotAcceptable->throw() } 'Polocky::Exception::NotAcceptable' ;
+throws_ok { Polocky::Exception::FileNotFound->throw() } 'Polocky::Exception::FileNotFound' ;
+throws_ok { Polocky::Exception::ParameterMissingError->throw() } 'Polocky::Exception::ParameterMissingError' ;
+throws_ok { Polocky::Exception::Detach->throw() } 'Polocky::Exception::Detach' ;
