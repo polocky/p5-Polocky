@@ -20,7 +20,7 @@ sub __POLOCKY__ {
 
 =head1 NAME
 
-Polocky::Class - Sublass of Moose 
+Polocky::Class - Subclass of Moose 
 
 =head1 SYNOPSIS
 
@@ -36,7 +36,7 @@ Polocky::Class - Sublass of Moose
  
 =head1 DESCRIPTION
 
-Polockyシステムのほとんどのクラスのベースになるクラスです。
+Polocky システムのほとんどのクラスのベースになるクラスです。
 L<Moose>のサブクラスなのですが、 利用の際に__POLOCKY__() ソースの最後によぶのが特徴です。
 
 つまり、

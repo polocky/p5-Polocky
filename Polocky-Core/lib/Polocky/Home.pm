@@ -35,7 +35,7 @@ Polocky::Home - ポロキィのお家
 
 ポロキィのお家(アプリケーションの位置)を見つけるモジュールです。
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
  use Polocky::Home;
  my $home = Polocky::Home->detect( "MyApp" );

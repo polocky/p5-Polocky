@@ -88,7 +88,7 @@ sub pkg {
 
 =head1 NAME
 
-Polocky::Config  - Configクラス
+Polocky::Config  - Config クラス
 
 =head1 DESCRIPTION
 
@@ -110,7 +110,7 @@ Polocky::Config  - Configクラス
 
 =head2 instance
 
-config objectを取得します
+config object を取得します
 
 =head1 AUTHOR
 

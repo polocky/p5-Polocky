@@ -92,14 +92,17 @@ Polocky::Structure - ポロキィの構造
 アプリケーションの構造を保持するクラスです。
 アプリケーション毎に、このクラスを継承したクラスを用意する必要があります。
 
-=head1 SYNOPSYS
+=head1 DEPENDENCY
+
+このクラスを利用する前にアプリケーション名及び、HOME ディレクトリを解決しておく必要があります。
+
+=head1 SYNOPSIS
 
  package MyApp::Structure;
 
  use warnings;
  use strict;
  use base qw(Polocky::Structure);
-
 
  1;
 
@@ -127,6 +130,38 @@ Polocky::Structure - ポロキィの構造
 =head2 template_dir
 
 ルートディレクトリを取得することができます。 XXX
+
+=head2 BUILD
+
+初期化処理
+
+=head2 config_file_path
+
+コンフィグファイルのパス
+
+=head2 config_global_file_path
+
+グローバルコンフィグファイルのパス
+
+=head2 config_internal_file_path
+
+内部コンフィグファイルのパス
+
+=head2 config_internal_local_file_path
+
+内部ローカルコンフィグファイルのパス
+
+=head2 config_internal_schema_file_path
+
+コンフィグツリーのヴァリデーションルールの記載したファイル
+
+=head2 config_local_file_path
+
+ローカルコンフィグのファイルのパス
+
+=head2 config_schema_file_path
+
+コンフィグツリーのヴァリデーションルールの記載したファイル
 
 =head1 SEE ALSO
 
