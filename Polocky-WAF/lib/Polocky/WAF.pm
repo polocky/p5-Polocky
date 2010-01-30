@@ -4,7 +4,7 @@ use Polocky::Utils;
 use Polocky::Exceptions;
 use UNIVERSAL::require;
 
-our $VERAION = '0.03';
+our $VERAION = '0.04';
 
 has 'logger' => (
     is      => 'rw',
