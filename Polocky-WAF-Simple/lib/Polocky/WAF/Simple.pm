@@ -4,7 +4,7 @@ extends 'Polocky::WAF';
 use Polocky::WAF::Simple::Engine;
 use Polocky::WAF::Simple::Context;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has 'context' => (
     is      => 'rw',
@@ -65,3 +65,34 @@ sub create_context {
 }
 
 1;
+
+=head1 NAME
+
+Polocky::WAF::Simple - Simple Polocky WAF
+
+=head1 SYNOPSIS
+
+ package TestApp::App;
+ use Polocky::Class;
+ use Polocky::Util::Initializer 'TestApp::App';
+ extends 'Polocky::WAF::Simple';
+ 
+ sub handle_request {
+   my ( $self , $c ) = @_;
+   $c->res->body('Hello TestApp::App');
+   $c->res->content_type('text/html');
+   $c->res->code( 200 );
+ }
+
+__POLOCKY__;
+
+=head1 DESCRIPTION
+
+WAF::Simple has no disptcher, so what you need to do is just write handler_request. 
+This is handy when you want to write fast and simple WEB.
+
+=head1 AUTHOR
+
+polocky
+
+=cut
