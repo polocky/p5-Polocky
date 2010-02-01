@@ -1,0 +1,3 @@
+[% FOREACH name IN names -%]
+[% name %]
+[% END -%]
