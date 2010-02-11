@@ -1,6 +1,6 @@
 package Polocky::FileGenerator;
 
-our $VERSION = '0.01_13';
+our $VERSION = '0.01_15';
 
 use Polocky::Class;
 use Polocky::Exceptions;

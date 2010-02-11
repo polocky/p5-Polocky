@@ -2,6 +2,7 @@ package Polocky::FileGenerator::Base;
 use Polocky::Class;
 use Polocky::Exceptions;
 use Polocky::Utils;
+use Path::Class;
 use IO::All -utf8;
 extends qw(Polocky::Core MooseX::App::Cmd::Command);
 
@@ -84,6 +85,8 @@ sub write_file {
     my $name    = $args->{out_name} || $args->{name} || $self->name ;
     $args->{config} = $self->config;
     my $out_file = $self->get_out_file( $name );
+    # make sure has the directory
+    $out_file->dir->mkpath();
     $self->logger->info( 'wrote file:' . $out_file );
     $content > io($out_file) ;
     1;
