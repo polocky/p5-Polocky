@@ -6,6 +6,8 @@ use Polocky::WAF::Request;
 use Encode;
 use URI::Escape;
 use utf8;
+use Plack::Test;
+use HTTP::Request::Common;
 
 {
     my $req = Polocky::WAF::Request->new({});
@@ -26,6 +28,7 @@ use utf8;
             QUERY_STRING => 'foo=%E6%97%A5%E6%9C%AC%E8%AA%9E&bar=%E6%97%A5%E6%9C%AC%E8%AA%9E&bar=%E6%97%A5%E6%9C%AC%E8%AA%9E'
         });
 
+    is( length $req->param('foo') , 3 , 'multi byte length' );
     is($req->param('foo'),'日本語', 'utf8 flg on');
     my @bar = $req->param('bar');
     is_deeply(\@bar,['日本語','日本語'], 'array utf8 flg on');
@@ -43,4 +46,21 @@ use utf8;
         is( $url , 'http://localhost/?hage=%E3%81%AF%E3%81%92&hoge=hoge' );
     }
 
+}
+
+{
+    my $app = sub {
+        my $req = Polocky::WAF::Request->new(shift);
+        is( length $req->param('utf8'), 3 );
+        my $res = $req->new_response();
+        $res->status(200);
+        $res->finalize;
+    };
+    test_psgi ( $app,
+              sub {
+                my $cb = shift;
+                my $res = $cb->( POST "/", { utf8 => "日本語" });
+                ok( $res->is_success );
+              }
+    );
 }

@@ -20,13 +20,13 @@ has stash => (is => 'rw', default => sub { {} });
 
 sub query_parameters {
     my $self = shift;
-    $self->env->{'plack.request.query'} ||= return $self->decode_multivalue( Hash::MultiValue->new($self->uri->query_form) );
+    $self->env->{'plack.request.query'} ||= $self->decode_multivalue( Hash::MultiValue->new($self->uri->query_form) );
 }
 sub body_parameters {
     my $self = shift;
     unless ($self->env->{'plack.request.body'}) {
         $self->_parse_request_body;
-        $self->decode_multivalue( $self->env->{'plack.request.body'} );
+        $self->env->{'plack.request.body'} = $self->decode_multivalue( $self->env->{'plack.request.body'} );
     }
 
     return $self->env->{'plack.request.body'};
