@@ -1,4 +1,3 @@
-
 package Polocky::Setup::Flavor::Polocky;
 use strict;
 use warnings;
@@ -224,6 +223,7 @@ template: |
 file: lib/____var-module_path-var____/Structure.pm
 template: |+
   package [% module %]::Structure;
+  use strict;
   use base qw(Polocky::Structure);
   1;
 
@@ -231,6 +231,7 @@ template: |+
 file: lib/____var-module_path-var____/Config.pm
 template: |+
   package [% module %]::Config;
+  use strict;
   use base qw(Polocky::Config);
   1;
 
@@ -238,6 +239,7 @@ template: |+
 file: lib/____var-module_path-var____/Logger.pm
 template: |+
   package [% module %]::Logger;
+  use strict;
   use base qw(Polocky::Logger);
   1;
 
@@ -249,6 +251,3 @@ config:
     - Config::Basic
     - Template
     - Test::Makefile
-    - Additional
-
-

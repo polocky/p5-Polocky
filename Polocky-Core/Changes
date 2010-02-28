@@ -1,2 +1,4 @@
+v0.03
+- add use strict; for generated Classes by helper
 v0.02
 - hello github
